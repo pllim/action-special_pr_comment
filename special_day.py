@@ -55,7 +55,7 @@ if not is_special_day_now(special_days=special_days):
     sys.exit(0)
 
 event_name = os.environ['GITHUB_EVENT_NAME']
-if event_name not in ('pull_request', 'issue'):
+if event_name not in ('pull_request_target', 'pull_request', 'issue'):
     # No-op but don't fail
     print(f'Unhandled event name: {event_name}')
     sys.exit(0)
