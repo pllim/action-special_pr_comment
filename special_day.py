@@ -54,16 +54,20 @@ if not is_special_day_now(special_days=special_days):
     print('Not a special day. Boring!')
     sys.exit(0)
 
-event_name = os.environ['GITHUB_EVENT_NAME']
-if event_name not in ('pull_request_target', 'pull_request', 'issues'):
-    # No-op but don't fail
-    print(f'Unhandled event name: {event_name}')
-    sys.exit(0)
-
 event_jsonfile = os.environ['GITHUB_EVENT_PATH']
 
 with open(event_jsonfile, encoding='utf-8') as fin:
     event = json.load(fin)
+
+event_name = os.environ['GITHUB_EVENT_NAME']
+if event_name in ('pull_request_target', 'pull_request'):
+    event_num = event['number']
+elif event_name == 'issues':
+    event_num = event['issue']['number']
+else:
+    # No-op but don't fail
+    print(f'Unhandled event name: {event_name}')
+    sys.exit(0)
 
 # NOTE: This is not a file to avoid I/O penalty.
 QUOTES = [
@@ -94,11 +98,6 @@ q = random.choice(QUOTES)
 reponame = os.environ['GITHUB_REPOSITORY']
 g = Github(os.environ.get('GITHUB_TOKEN'))
 repo = g.get_repo(reponame)
-try:
-    event_num = event['number']
-except Exception:
-    print(event)
-    sys.exit(1)
 targ = repo.get_issue(event_num)
 targ.create_comment(f'*{q}*')
 print(f'{q}\n\nMischief managed!')
