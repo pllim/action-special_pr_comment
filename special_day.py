@@ -94,7 +94,11 @@ q = random.choice(QUOTES)
 reponame = os.environ['GITHUB_REPOSITORY']
 g = Github(os.environ.get('GITHUB_TOKEN'))
 repo = g.get_repo(reponame)
-event_num = event['number']
+try:
+    event_num = event['number']
+except Exception:
+    print(event)
+    sys.exit(1)
 targ = repo.get_issue(event_num)
 targ.create_comment(f'*{q}*')
 print(f'{q}\n\nMischief managed!')
