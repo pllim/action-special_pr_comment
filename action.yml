@@ -1,0 +1,7 @@
+name: 'Special day comment'
+description: 'Comment if today is a special day.'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+  - 'none'
