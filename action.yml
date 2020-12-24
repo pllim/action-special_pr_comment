@@ -1,7 +1,15 @@
 name: 'Special day comment'
 description: 'Comment if today is a special day.'
+author: 'pllim'
+inputs:
+  SPECIAL_DAYS:
+    description: 'Comma separated MM-DD'
+    default: '04-01'
+    required: false
+  GITHUB_TOKEN:
+    description: 'GitHub access token'
+    required: true
+
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
-  args:
-  - 'none'
+  using: 'node12'
+  main: 'dist/index.js'

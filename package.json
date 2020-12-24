@@ -1,0 +1,29 @@
+{
+  "name": "action-special_pr_comment",
+  "version": "0.2.0",
+  "description": "Comment on issues and pull requests opened on special day(s).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc && ncc build lib/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pllim/action-special_pr_comment.git"
+  },
+  "keywords": [],
+  "author": "pllim",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/pllim/action-special_pr_comment/issues"
+  },
+  "homepage": "https://github.com/pllim/action-special_pr_comment",
+  "dependencies": {
+    "@actions/core": "^1.2.6",
+    "@actions/github": "^4.0.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.26.1",
+    "typescript": "^4.1.3"
+  }
+}
