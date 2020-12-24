@@ -19,10 +19,10 @@ jobs:
     steps:
     - name: Special comment
       uses: pllim/action-special_pr_comment@main
-      env:
-        SPECIAL_DAYS: 04-01,11-21
+      with:
+        SPECIAL_DAYS: 04-01,12-23
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 `SPECIAL_DAYS` must contain a comma-separate list of dates in the format of
-`MM-DD`.
+`MM-DD`. If it is not provided, a built-in default is used.
