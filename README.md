@@ -26,3 +26,11 @@ jobs:
 
 `SPECIAL_DAYS` must contain a comma-separate list of dates in the format of
 `MM-DD`. If it is not provided, a built-in default is used.
+
+
+## Dev notes
+
+```
+npm install
+npm run build
+```
