@@ -71,7 +71,7 @@ async function run() {
         const quote = QUOTES[Math.floor(Math.random() * QUOTES.length)];
         core.info(`${quote}`);
 
-        octokit.issues.createComment({
+        octokit.rest.issues.createComment({
             owner: github.context.repo.owner,
             repo: github.context.repo.repo,
             issue_number: issue_number,
