@@ -66,6 +66,7 @@ async function run() {
             "Resistance is futile.",
             "I'm the one who knocks!",
             "Who are you who are so wise in the ways of science?",
+            "Calculations correct!",
             "Not bad, for a human."];
         const quote = QUOTES[Math.floor(Math.random() * QUOTES.length)];
         core.info(`${quote}`);
